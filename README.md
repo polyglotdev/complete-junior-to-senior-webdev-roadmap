@@ -39,7 +39,7 @@ Also, if you are on Windows, you may have to use GitBash instead of Powershell. 
 
 2. Type "ssh-agent bash" and press Enter.
 
-3. Type "ssh-add ~/.ssh/id_rsa_digitalocean" and press Enter. You should get confrimation of Identity added.
+3. Type "ssh-add ~/.ssh/id_rsa_digitalocean" and press Enter. You should get confirmation of Identity added.
 
 4. Try connecting to your digital ocean account again via SSH. Now it shouldn't ask you for the password!
 
@@ -63,3 +63,47 @@ Another option is to use https://www.ssh.com/ssh/putty/windows/puttygen
 Extra Video:
 
 If you want to learn a little bit more about how SSH works internally, watch this excellent video: https://youtu.be/ORcvSkgdA58
+
+## Performance Part 1
+![client - server](client-server.png)
+
+The CSS, images, and js are are taken from the server and sent to the client
+
+### Improvements
+1. Client
+2. Network latency
+3. Backend Processing
+
+There are infinite ways to optimize the website but we want to solve things in the most preformat ways that have actual business impact.
+
+### Network Performance
+- Shrink the files
+  - Minimize Text - JS CSS HTML
+    - 👆🏾 this can be done with uglifyJS
+  - Minimize images
+    - Change the file format: jpg, svg, gif, png
+      - JPG: Photos - many images. They lack transparency
+      - GIF: 2-256 colors increases savings on size
+      - PNG - Limited colors - used in logos
+      - SVG - called vector graphics. can be expanded 7X the size. Great on retina displays. they generally have few colors
+- traveling deliveryperson
+
+### Minimize images
+- you want transparency: use a PNG
+- If you want animations: use a GIF
+- If you want colorful images: us a
+- If you want simple icons, logos, and illustrations, use SVGs
+- Reduce PNG with TinyPNG
+- Reduce JPG with JPEG-optimizer
+- Try to choose simple illustrations over highly detailed photographs
+- Always lower JPEG image quality (30-60%)
+- Resize image based on size it will be displayed
+- Display different sized images for different backgrounds.
+- Use CDs like imigx
+  - Remove image metadata
+
+### Traveling deliveryperson
+
+Less trips from client to server makes the deliveryperson less tired because remember there is only one of them.
+
+Think about max concurrent requests which is governed by the browser
